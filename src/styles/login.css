@@ -1,0 +1,157 @@
+@import "https://fonts.googleapis.com/css?family=Work+Sans:400, 300, 700";
+/* Base styles */
+*,
+*:after,
+*:before {
+  box-sizing: border-box; }
+
+html {
+  font-size: 100%;
+  line-height: 1.5;
+  height: 100%; }
+
+body {
+  position: relative;
+  margin: 0;
+  font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+  min-height: 100%;
+  background: #2196f3;
+  color: #777; }
+
+/* Container */
+.container {
+  position: absolute;
+  width: 24em;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: intro 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+
+/* Intro animation */
+@keyframes intro {
+  from {
+    opacity: 0;
+    top: 0; }
+  to {
+    opacity: 1;
+    top: 50%; } }
+
+/* Profile Card */
+.profile {
+  position: relative; }
+
+.profile--open .profile__form {
+  visibility: visible;
+  height: auto;
+  opacity: 1;
+  transform: translateY(-6em); }
+
+.profile--open .profile__fields {
+  opacity: 1;
+  visibility: visible; }
+
+.profile__form {
+  position: relative;
+  background: white;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  padding: 3em;
+  border-radius: 0.25em;
+  filter: drop-shadow(0 0 2em rgba(0, 0, 0, 0.2));
+  -webkit-filter: drop-shadow(0 0 2em rgba(0, 0, 0, 0.2));
+  transition: opacity 0.4s ease-in-out, height 0.4s ease-in-out, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+.profile__fields {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+.profile__footer {
+  padding-top: 1em; }
+
+/* Form */
+.field {
+  position: relative;
+  margin-bottom: 2.5em; }
+  .field .label {
+    position: absolute;
+    height: 2rem;
+    line-height: 2rem;
+    bottom: 0;
+    left: 0;
+    color: #999;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+  .field .input {
+    width: 100%;
+    font-size: 100%;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    height: 2rem;
+    line-height: 2rem;
+    border-bottom: 1px solid #eee;
+    color: #777;
+    transition: all 0.2s ease-in; }
+    .field .input:focus {
+      outline: 0;
+      border-color: #ccc; }
+  .field span {
+    position: absolute;
+    left: 0;
+    bottom: -14px;
+    font-size: 12px;
+    color: red; }
+
+/* Using required and a faux pattern to see if input has text from http://stackoverflow.com/questions/16952526/detect-if-an-input-has-text-in-it-using-css */
+.input:focus + .label,
+input:valid + .label {
+  transform: translateY(-100%);
+  font-size: 0.75rem;
+  color: #ccc; }
+
+/* Button */
+.btn {
+  border: 0;
+  font-size: 0.75rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  padding: 0 1.5rem;
+  color: white;
+  background: #8e49e8;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  letter-spacing: 0.2em;
+  transition: background 0.2s; }
+  .btn:focus {
+    outline: 0; }
+  .btn:hover, .btn:focus {
+    background: #a678e2; }
+
+.button {
+  display: inline-block;
+  position: relative;
+  width: 150px;
+  height: 42px;
+  line-height: 42px;
+  border-radius: 2px;
+  font-size: 0.9em;
+  background-color: #fff;
+  color: #646464;
+  cursor: pointer; }
+  .button.blue {
+    background-color: #ff4081;
+    color: #fff; }
+  .button.raised {
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.2s;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26); }
+    .button.raised:active {
+      box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+      transition-delay: 0s; }
+  .button > paper-ripple {
+    border-radius: 2px;
+    overflow: hidden; }
+
+.center {
+  text-align: center; }
